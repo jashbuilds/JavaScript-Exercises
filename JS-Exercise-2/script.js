@@ -33,17 +33,9 @@ const data = [
     }
 ]
 
-let min = Math.min.apply(null, 
-    data.map( function(a) {
-        return a.age;
-    })
-)
+let min = Math.min(...data.map( (a) => a.age ));
 
-let max = Math.max.apply(null, 
-    data.map( function(a) {
-        return a.age;
-    })
-)
+let max = Math.max(...data.map( (a) => a.age ));
 
 console.log(`Minimum age is ${min}`);
 
@@ -55,7 +47,7 @@ console.log(`Maximum age is ${max}`);
 
 let str = "javascript learning";
 
-let newStr = str.replace(/a/g, "c")
+let newStr = str.replace(/a/g, "c");
 
 console.log(`New String: "${newStr}" `);
 
@@ -78,8 +70,8 @@ if(index === 7) {
 
 /* 5. fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"] : remove 2nd & 3rd element from array. */
 
-let fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"]
+let fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
 
-fruits.splice(1, 2)
+fruits.splice(1, 2);
 
 console.log(fruits);
