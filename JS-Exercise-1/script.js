@@ -15,16 +15,15 @@ const inputName = document.getElementById('name');
 const inputAge = document.getElementById('age');
 const submitVal = document.getElementById('submitObject')
 
-submitVal.addEventListener('click', (e) => {
 
-    const newObj = {
-        name: inputName.value,
-        age: inputAge.value
-    }
+submitVal.addEventListener('click', (e) => {
+    e.preventDefault();
     
+    const newObj = {}
+    newObj.name = inputName.value;
+    newObj.age = inputAge.value;
     console.log(newObj);
     
-    e.preventDefault();
 })
 
 
