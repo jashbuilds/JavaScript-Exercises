@@ -39,7 +39,6 @@ submitBtn.addEventListener('click', (e) => {
         age: inputAge.value
     }]
 
-    console.log("Data in Array format:");
-    console.log(newArr);  // output in console because it is not showing properly in DOM, also JSON.stringify() is not working properly for this.
+    document.getElementById('dataArr').innerText = JSON.stringify(newArr)
 
 });

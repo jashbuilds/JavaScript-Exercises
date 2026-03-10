@@ -19,15 +19,31 @@
                 '2022-04-21'}, {id : 12 , description: 'order #12 placed' , date
                 : '2022-04-20'} , {id : 13 , description: 'order #13 placed' ,
                 date : '2022-04-21'}]</p>
-        <p>Object with today's Date: <span class="dateObj"></span>
+        <p>Object with today's Date: <span id="dateObj"></span>
         </p>
         <br>
 
 
         <form id="demo">
-            <label for="currDigit">Enter Digit: &nbsp;</label>
-            <input type="text" id="currDigit" placeholder="type here"><br>
-            <button id="nextBtn">Next Digit &nbsp;</button> <span id="nextVal"></span>
+            <label for="inputDigit">Enter Digit: &nbsp;</label>
+            <input type="text" id="inputDigit" placeholder="type here"><br>
+            <button id="nextBtn">Next Digit &nbsp;</button> 
+            <p>Next Value: <span id="nextVal"></span></p>
+        </form> <br>
+
+        <p>Original String: 'I am master at string'.</p>
+        <p>Updated String: <span id="updStr"></span></p> <br><br>
+
+        <form >
+            <label for="strRev">Enter String: &nbsp;</label>
+            <input type="text" name="strRev" id="strRev" placeholder="type here">
+            <button id="revBtn">Reverse</button>
+            <p>Reversed String: &nbsp; <span id="revStr"></span></p> <br><br>
+
+            <label for="vowelCheck">Enter String to get vowel Count: &nbsp;</label>
+            <input type="text" id="vowelCheck" placeholder="type here"> 
+            <button id="countBtn">Count</button> <br>
+            <p>Count of vowels in String: <span id="vowelCount"></span></p>
         </form>
 
         <script src="./script.js"></script>
