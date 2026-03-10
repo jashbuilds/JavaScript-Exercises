@@ -1,10 +1,10 @@
 /* 1. take one input field. display count of character entered in input. */
 
-const inputField = document.getElementById('input');
-const charCount = document.getElementById('chars');
+const charInput = document.getElementById('charInput');
+const charCount = document.getElementById('charCount');
 
-inputField.addEventListener('input', () => {
-    charCount.innerHTML = inputField.value.length;
+charInput.addEventListener('input', () => {
+    charCount.innerHTML = charInput.value.length;
 })
 
 
@@ -13,35 +13,33 @@ inputField.addEventListener('input', () => {
 
 const inputName = document.getElementById('name');
 const inputAge = document.getElementById('age');
-const submitVal = document.getElementById('submitObject')
+const submitBtn = document.getElementById('submitBtn')
+const showObj = document.getElementById('showObj')
 
-
-submitVal.addEventListener('click', (e) => {
+submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    
+
     const newObj = {}
     newObj.name = inputName.value;
     newObj.age = inputAge.value;
-    console.log(newObj);
-    
+
+    showObj.innerHTML = JSON.stringify(newObj)
+
 })
 
 
 
 /* 3. take 2 input fields like name and age. display it in array. ex : [{name:'test1',age:18},{name:'test1',age:18}];*/
 
-submitVal.addEventListener('click', (e) => {
-    const values = [{
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const newArr = [{
         name: inputName.value,
-        age: inputAge.value,
-        name1: inputName.value,
-        age1: inputAge.value
+        age: inputAge.value
     }]
 
-    console.log(values);
+    console.log("Data in Array format:");
+    console.log(newArr);  // output in console because it is not showing properly in DOM, also JSON.stringify() is not working properly for this.
 
-    e.preventDefault();
-})
-
-
-
+});

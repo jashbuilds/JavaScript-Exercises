@@ -1,0 +1,18 @@
+
+1. Display array of object which date is of today's date.
+
+[{id : 11 , description: 'order #11 placed' , date : '2022-04-21'}, {id : 12 , description: 'order #12 placed' , date : '2022-04-20'} , {id : 13 , description: 'order #13 placed' , date : '2022-04-21'}];
+
+2. Find out next digit of entered digit.
+ex : 201 => Output : 202
+ex : -3 => Output : -2
+
+3. for the given string replace all 'a' character with 'z' , only if 'a' is at first position in word.
+
+ex: 'I am master at string'
+
+output : 'I zm master zt string'
+
+4. take a one input field , reverse entered input.
+
+5. take a one input field , find out total count of vowels inside input string.
