@@ -18,7 +18,7 @@ input.addEventListener('input', () => {
 
 /* 2. [{ name: 'Jerry', age: 12 }, { name: 'Peter', age: 18 }, { name: 'John', age: 9 }]; 1.make a function to display object which has minimum age. 2.make a function to display object which has maximum age . */
 
-const data = [
+const personData = [
     {
         name: "Jerry",
         age: 12
@@ -33,45 +33,60 @@ const data = [
     }
 ]
 
-let min = Math.min(...data.map( (a) => a.age ));
+let min = personData.reduce((min, user) => 
+    user.age < min.age ? user : min
+);
 
-let max = Math.max(...data.map( (a) => a.age ));
+const minAge = document.getElementById('minAge');
 
-console.log(`Minimum age is ${min}`);
+minAge.innerHTML = JSON.stringify(min);
 
-console.log(`Maximum age is ${max}`);
+
+let max = personData.reduce((max, user) =>
+    user.age > max.age ? user : max
+);
+
+const maxAge = document.getElementById('maxAge');
+
+maxAge.innerHTML = JSON.stringify(max);
 
 
 
 /* 3. "javascript learning" : for the string replace all 'a' character with 'c'. */
 
+const strField = document.getElementById('str')
+
 let str = "javascript learning";
 
-let newStr = str.replace(/a/g, "c");
+let newStr = str.replace(/a/g, "c")
 
-console.log(`New String: "${newStr}" `);
+strField.innerHTML = ' "' + newStr + '" '
 
 
 
 /* 4. "Hello world, welcome" : check "world" is starts at position 7 , if yes then display true else display false. */
 
-let str1 = "Hello world, welcome";
+const position = document.getElementById('position')
 
-let index = str1.indexOf("world");
+let greet = "Hello world, welcome";
+
+let index = greet.indexOf("world");
 
 if(index === 7) {
-    console.log(true);
+    position.innerHTML = true
     
 } else {
-    console.log(false);
+    position.innerText = false
 }
 
 
 
 /* 5. fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"] : remove 2nd & 3rd element from array. */
 
-let fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
+const spliceFruit = document.getElementById('fruits')
 
-fruits.splice(1, 2);
+let fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"]
 
-console.log(fruits);
+fruits.splice(1, 2)
+
+spliceFruit.innerHTML = `[ "${fruits[0]}", "${fruits[1]}", "${fruits[2]}" ]`
