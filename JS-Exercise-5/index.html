@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+        <style> body{font-family: 'Poppins', sans-serif;} </style>
+        <title>JS Exercise 5</title>
+    </head>
+    <body>
+
+        <h1>JS Exercise 5</h1>
+
+        <h4>1.take 4 input field : student name , maths marks , science marks,
+            english marks. make a object of it.
+            find the total of all subject.
+            - if total is greater then or equal to 200 , then print
+            'you are passed with grade A'
+            - if total is greater then or equal to 100 , then print
+            'you are passed with grade B'
+            - if total is less then 100 , then print
+            'you are passed with grade C'
+            - otherwise print 'You are failed'
+
+            using switch case.</h4>
+        <form>
+            <label for="studentName">Student Name: &nbsp;</label>
+            <input type="text" id="studentName" placeholder="Enter Name">
+            <br><br>
+
+            <label for="mathMarks">Maths Marks: &nbsp;</label>
+            <input type="number" id="mathMarks" placeholder="Enter Marks">
+            <br><br>
+
+            <label for="scienceMarks">Science Marks: &nbsp;</label>
+            <input type="number" id="scienceMarks" placeholder="Enter Marks">
+            <br><br>
+
+            <label for="engMarks">English Marks: &nbsp;</label>
+            <input type="number" id="engMarks" placeholder="Enter Marks">
+            <br><br>
+
+            <button type="button" id="submitData" disabled>Submit</button>
+        </form>
+
+        <h4>2. Generate an array of random digits like [1,2,3,6,5,3,46,63];
+
+            a. Take one button and click on it do like,
+            if array contains digit '5' : then print element of array till digit
+            '5' , don't print elements which are after '5'. Output will be like
+            [1,2,3,6]
+
+            b. Take one button and click on it do like,
+            if array contains digit '5' then don't print digit '5' , print all
+            other elements. Output will be [1,2,3,6,3,46,63]</h4>
+
+        <form>
+            <label for="arrayLength">Define the length of an array:</label> &nbsp;
+            <input type="number" id="arrayLength" name="arrayLength" min="1" placeholder="Type Here"> &nbsp;
+            <button id="generateBtn">Generate</button> <br>
+            <button id="trimArr">Trim till 5</button>
+            <button id="skipArr">Skip digit 5</button>
+        </form>
+
+        <script src="./script.js"></script>
+    </body>
+</html>

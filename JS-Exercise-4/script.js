@@ -35,12 +35,12 @@ submitBtn.addEventListener('click', (e) => {
     const nameArr = employees.map(emp => emp.name)
     console.log("Array containing Name only:", nameArr);
 
-    const totalSalary = employees.reduce( (sum, emp) => sum + emp.salary, 0);
+    const totalSalary = employees.reduce((sum, emp) => sum + emp.salary, 0);
     console.log("Total Salary:", totalSalary);
 
-    const test1 = employees.filter( (emp) => emp.name === 'test1')
+    const test1 = employees.filter((emp) => emp.name === 'test1')
     console.log("Objects containing name (test1):", test1);
-    
+
 })
 
 empId && empName && empSalary.addEventListener('keyup', () => {
@@ -70,7 +70,7 @@ let chars = ['A', 'B', 'A', 'C', 'B'];
 let newSet = new Set(chars)
 let newArr = [...newSet];
 
-document.getElementById('updArr').innerText = JSON.stringify(newArr) 
+document.getElementById('updArr').innerText = JSON.stringify(newArr)
 
 
 
@@ -86,9 +86,9 @@ document.getElementById('fruitsArr').innerText = JSON.stringify(fruits)
 
 /* 5. return array which contains binary value of all elements for the given array. arr = [1,2,4,5,6] */
 
-let arr = [1,2,4,5,6]
+let arr = [1, 2, 4, 5, 6]
 
-let binArr = arr.map( (a) => a.toString(2))
+let binArr = arr.map((a) => a.toString(2))
 
 document.getElementById('binaryVal').innerText = JSON.stringify(binArr)
 
@@ -101,3 +101,54 @@ let text = "Mr. Blue has a blue house";
 let newText = text.split(' ')
 
 document.getElementById("splitVal").innerText = JSON.stringify(newText);
+
+
+
+/* 7. take a one input field , if in input field entered last character is 'a,e,i,o,u' then background color of input will be red , else green. */
+
+const vowels = "aeiou"
+
+let char = document.getElementById('char')
+
+char.addEventListener('input', (e) => {
+    e.preventDefault()
+
+    let inpValue = char.value.toLowerCase()
+    let lastVal = inpValue[inpValue.length - 1]
+    if (vowels.includes(lastVal)) {
+        char.style.backgroundColor = 'red'
+    } else {
+        char.style.backgroundColor = 'green'
+    }
+})
+
+
+
+/* 8.take a string as input field:
+            - must be 8 character long.
+            - must contain one uppercase and one lowercase letter.
+            - must contain one symbol. if following condition is not matched then display message like , "string is not valid". */
+
+const re = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/
+const validateBtn = document.getElementById('validateBtn') 
+
+validateBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    
+    const strVal = document.getElementById('checkStr').value
+    if (re.test(strVal)) {
+        document.getElementById('validateMsg').innerText = "String is Valid"
+    } else {
+        document.getElementById('validateMsg').innerText = "String is not Valid"
+    }
+})
+
+
+document.getElementById('checkStr').addEventListener('input', () => {
+    
+    if(document.getElementById('checkStr').value.length < 8){
+        validateBtn.disabled = true
+    } else {
+        validateBtn.disabled = false
+    }
+})
