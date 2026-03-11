@@ -15,34 +15,64 @@
 
         <h1>JavaScript Exercise 3</h1>
 
-        <p>[{id : 11 , description: 'order #11 placed' , date :
-                '2022-04-21'}, {id : 12 , description: 'order #12 placed' , date
-                : '2022-04-20'} , {id : 13 , description: 'order #13 placed' ,
-                date : '2022-04-21'}]</p>
+        <h4>1. Display array of object which date is of today's date.
+
+            [{id : 11 , description: 'order #11 placed' , date : '2022-04-21'},
+            {id : 12 , description: 'order #12 placed' , date : '2022-04-20'} ,
+            {id : 13 , description: 'order #13 placed' , date :
+            '2022-04-21'}];</h4>
+
+        <form>
+            <label for="orderId">ID:</label>
+            <input type="number" name="orderId" id="orderId"
+                placeholder="Enter ID"> <br><br>
+
+            <label for="orderDesc">Description:</label>
+            <input type="text" name="orderDesc" id="orderDesc"
+                placeholder="Enter Description"> <br><br>
+
+            <label for="orderDate">Date:</label>
+            <input type="date" name="orderDate" id="orderDate"
+                placeholder="Enter Date"> <br><br>
+
+            <button id="dataSubmit" disabled>Submit</button> &nbsp;&nbsp;
+            <button id="matchBtn">Match</button>
+        </form>
+
         <p>Object with today's Date: <span id="dateObj"></span>
-        </p>
-        <br>
+        </p><br>
 
-
+        <h4>2. Find out next digit of entered digit.
+            ex : 201 => Output : 202
+            ex : -3 => Output : -2</h4>
         <form id="demo">
             <label for="inputDigit">Enter Digit: &nbsp;</label>
-            <input type="text" id="inputDigit" placeholder="type here"><br>
-            <button id="nextBtn">Next Digit &nbsp;</button> 
-            <p>Next Value: <span id="nextVal"></span></p>
+            <input type="number" id="inputDigit" placeholder="type here"><br>
+            <button id="nextBtn" disabled>Next Digit &nbsp;</button>
+            <p>Next Value: <span id="nextVal">0</span></p>
         </form> <br>
 
+        <h4>3. for the given string replace all 'a' character with 'z' , only if
+            'a' is at first position in word.
+            ex: 'I am master at string'
+            output : 'I zm master zt string'</h4>
         <p>Original String: 'I am master at string'.</p>
         <p>Updated String: <span id="updStr"></span></p> <br><br>
 
-        <form >
+        <form>
+            <h4>4. take a one input field , reverse entered input.</h4>
             <label for="strRev">Enter String: &nbsp;</label>
-            <input type="text" name="strRev" id="strRev" placeholder="type here">
-            <button id="revBtn">Reverse</button>
+            <input type="text" name="strRev" id="strRev"
+                placeholder="type here">
+            <button id="revBtn" disabled>Reverse</button>
             <p>Reversed String: &nbsp; <span id="revStr"></span></p> <br><br>
 
-            <label for="vowelCheck">Enter String to get vowel Count: &nbsp;</label>
-            <input type="text" id="vowelCheck" placeholder="type here"> 
-            <button id="countBtn">Count</button> <br>
+            <h4>5. take a one input field , find out total count of vowels
+                inside input string.</h4>
+            <label for="vowelCheck">Enter String to get vowel Count:
+                &nbsp;</label>
+            <input type="text" id="vowelCheck" placeholder="type here">
+            <button id="countBtn" disabled>Count</button> <br>
             <p>Count of vowels in String: <span id="vowelCount"></span></p>
         </form>
 

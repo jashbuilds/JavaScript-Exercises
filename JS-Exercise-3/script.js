@@ -2,17 +2,50 @@
 
 [{id : 11 , description: 'order #11 placed' , date : '2022-04-21'}, {id : 12 , description: 'order #12 placed' , date : '2022-04-20'} , {id : 13 , description: 'order #13 placed' , date : '2022-04-21'}]; */
 
-const orders = [
-  { id: 11, description: "order #11 placed", date: '2026-03-11' },
-  { id: 12, description: "order #12 placed", date: '2022-04-20' },
-  { id: 13, description: "order #13 placed", date: '2026-03-10' },
-];
+const orders = [];
 
-const today = new Date().toISOString().split("T")[0];
+function addData(id, desc, date) {
+    const obj = {
+        id: id,
+        description: desc,
+        date: date
+    }
+    orders.push(obj);
+}
 
-const result = orders.filter(order => order.date === today);
+const submitData = document.getElementById('dataSubmit');
+const orderId = document.getElementById('orderId')
+const orderDesc = document.getElementById('orderDesc')
+const orderDate = document.getElementById('orderDate')
+const matchBtn = document.getElementById('matchBtn')
 
-document.getElementById('dateObj').innerText = JSON.stringify(result)
+submitData.addEventListener('click', (e) => {
+    e.preventDefault();
+    const date = new Date(orderDate.value).toISOString().split("T")[0]; 
+    
+    addData(orderId.value, orderDesc.value, date);
+    
+    console.log(orders);
+})
+
+matchBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const today = new Date().toISOString().split("T")[0];
+    const result = orders.filter(order => order.date === today);
+    document.getElementById('dateObj').innerText = JSON.stringify(result)
+
+})
+
+orderId && orderDesc && orderDate.addEventListener('keyup', () => {
+    if (orderId && orderDesc && orderDate.value.trim() === "") {
+        submitData.disabled = true;
+    } else {
+        submitData.disabled = false;
+    }
+})
+
+
 
 
 /* 2. Find out next digit of entered digit.
@@ -31,6 +64,14 @@ nextBtn.addEventListener("click", (e) => {
 
   document.getElementById("nextVal").innerText = nextNumber;
 });
+
+digit.addEventListener('input', () => {
+    if (digit.value.trim() === "") {
+        nextBtn.disabled = true;
+    } else {
+        nextBtn.disabled = false;
+    }
+})
 
 
 
@@ -58,6 +99,13 @@ revBtn.addEventListener('click', (e) => {
     document.getElementById('revStr').innerText = reversed;
 })
 
+strRev.addEventListener('keyup', () => {
+    if (strRev.value.trim() === "") {
+        revBtn.disabled = true;
+    } else {
+        revBtn.disabled = false;
+    }
+})
 
 
 /* 5. take a one input field , find out total count of vowels inside input string. */
@@ -82,4 +130,12 @@ countBtn.addEventListener('click', (e) => {
     }
 
     document.getElementById('vowelCount').innerText = count;
+})
+
+vowelInput.addEventListener('keyup', () => {
+    if (vowelInput.value.trim() === "") {
+        countBtn.disabled = true;
+    } else {
+        countBtn.disabled = false;
+    }
 })
