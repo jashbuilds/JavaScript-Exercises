@@ -1,7 +1,0 @@
-1. take one input field. display count of character entered in input.
-
-2. take 2 input fields like name and age. display it in object. 
-   ex : {name:'test1',age:18}
-
-3. take 2 input fields like name and age. display it in array.
-   ex : [{name:'test1',age:18},{name:'test1',age:18}];
