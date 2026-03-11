@@ -1,4 +1,4 @@
-1. take 3 input fields 'id' , 'name' & salary .
+1. take 3 input fields 'id' , 'name' & salary.
 
   store this in object as {id:'1' , 'name':'test1' , salary:20000};
   push 3 or more than 3 objects in array.
@@ -7,7 +7,7 @@
 	b. display array which contains only name.
 	c. display total of salary.
 	d. display array which contains object whose name is 'test1'.
-
+	
 2. 
 
 str = 'https://test/google.com';
