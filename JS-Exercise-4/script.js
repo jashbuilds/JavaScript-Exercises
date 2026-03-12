@@ -30,16 +30,22 @@ submitBtn.addEventListener('click', (e) => {
 
     addEmployee(empId.value, empName.value, empSalary.value);
 
-    console.log("All Object:", employees);
+    console.log("All Objects:");
+    console.table(employees);
 
     const nameArr = employees.map(emp => emp.name)
-    console.log("Array containing Name only:", nameArr);
+    console.log("Array containing Name only:")
+    console.table(nameArr);
 
     const totalSalary = employees.reduce((sum, emp) => sum + emp.salary, 0);
-    console.log("Total Salary:", totalSalary);
+    console.log("Total Salary:");
+    console.table(totalSalary)
 
     const test1 = employees.filter((emp) => emp.name === 'test1')
-    console.log("Objects containing name (test1):", test1);
+    console.log("Objects containing name (test1):");
+    console.table(test1)
+
+    document.getElementById('message').innerText = "(Check console for Output)"
 
 })
 

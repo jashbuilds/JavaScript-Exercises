@@ -16,54 +16,54 @@ const submitData = document.getElementById("submitData");
 const stdData = {};
 
 const addData = (name, mathMark, sciMark, engMark) => {
-  const obj = {
-    name: name,
-    mathsMarks: Number(mathMark),
-    scienceMarks: Number(sciMark),
-    englishMarks: Number(engMark),
-  };
-  Object.assign(stdData, obj);
+    const obj = {
+        name: name,
+        mathsMarks: Number(mathMark),
+        scienceMarks: Number(sciMark),
+        englishMarks: Number(engMark),
+    };
+    Object.assign(stdData, obj);
 };
 
 submitData.addEventListener("click", (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  addData(stdName.value, mathMarks.value, sciMarks.value, engMarks.value);
+    addData(stdName.value, mathMarks.value, sciMarks.value, engMarks.value);
 
-  delete stdData.name;
+    delete stdData.name;
 
-  let sum = 0;
-  for (let i in stdData) {
-    sum += stdData[i];
-  }
+    let sum = 0;
+    for (let i in stdData) {
+        sum += stdData[i];
+    }
 
-  console.log(`Total of all subject marks: ${sum}`);
+    console.log(`Total of all subject marks: ${sum}`);
 
-  switch (true) {
-    case sum >= 200:
-      console.log("you are passed with grade A");
-      break;
-    case sum >= 100:
-      console.log("you are passed with grade B");
-      break;
-    case sum < 100 && sum >= 55:
-      console.log("you are passed with grade C");
-      break;
-    default:
-      console.log("You are failed");
-  }
+    switch (true) {
+        case sum >= 200:
+            console.log("you are passed with grade A");
+            break;
+        case sum >= 100:
+            console.log("you are passed with grade B");
+            break;
+        case sum < 100 && sum >= 55:
+            console.log("you are passed with grade C");
+            break;
+        default:
+            console.log("You are failed");
+    }
 });
 
 stdName &&
-  mathMarks &&
-  sciMarks &&
-  engMarks.addEventListener("keyup", () => {
-    if (stdName && mathMarks && sciMarks && engMarks.value.trim() === "") {
-      submitData.disabled = true;
-    } else {
-      submitData.disabled = false;
-    }
-  });
+    mathMarks &&
+    sciMarks &&
+    engMarks.addEventListener("keyup", () => {
+        if (stdName && mathMarks && sciMarks && engMarks.value.trim() === "") {
+            submitData.disabled = true;
+        } else {
+            submitData.disabled = false;
+        }
+    });
 
 /* 2. Generate an array of random digits like [1,2,3,6,5,3,46,63];
 
@@ -74,38 +74,52 @@ stdName &&
     if array contains digit '5' then don't print digit '5' , print all other elements. Output will be [1,2,3,6,3,46,63] */
 
 const generateBtn = document.getElementById("generateBtn");
-const trimArr = document.getElementById("trimArr");
-const skipArr = document.getElementById("skipArr");
+const trimArrBtn = document.getElementById("trimArrBtn");
+const skipArrBtn = document.getElementById("skipArrBtn");
+const arrayLengthInput = document.getElementById("arrayLength");
 let arr = [];
 
 generateBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  arr = []
+    arr = []
 
-  const arrayLength = document.getElementById("arrayLength").value;
-  for (var i = 0; i < arrayLength; i++) {
-    arr.push(Math.round(Math.random() * 30));
-  }
-//   console.log(arr);
-  console.table(arr)
-});
-
-trimArr.addEventListener("click", (e) => {
-  e.preventDefault();
-  let result = [];
-  for (let num of arr) {
-    if (num === 5) {
-      break;
+    const arrayLength = document.getElementById("arrayLength").value;
+    for (var i = 0; i < arrayLength; i++) {
+        arr.push(Math.round(Math.random() * 30));
     }
-    result.push(num);
-  }
-  console.table(result);
+
+    console.table(arr)
+
+    trimArrBtn.disabled = false
+    skipArrBtn.disabled = false
 });
 
-skipArr.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const finalArr = arr.filter((n) => n !== 5);
-  console.table(finalArr);
+trimArrBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    let result = [];
+    for (let num of arr) {
+        if (num === 5) {
+            break;
+        }
+        result.push(num);
+    }
+    console.table(result);
 });
+
+skipArrBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const finalArr = arr.filter((n) => n !== 5);
+    console.table(finalArr);
+});
+
+arrayLengthInput.addEventListener('input', (e) => {
+    e.preventDefault()
+
+    if(arrayLengthInput.value.trim() === ""){
+        generateBtn.disabled = true
+    } else {
+        generateBtn.disabled = false
+    }
+})

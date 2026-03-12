@@ -25,7 +25,9 @@ submitData.addEventListener('click', (e) => {
     
     addData(orderId.value, orderDesc.value, date);
     
-    console.log(orders);
+    console.table(orders);
+
+    matchBtn.disabled = false;
 })
 
 matchBtn.addEventListener('click', (e) => {
@@ -37,7 +39,7 @@ matchBtn.addEventListener('click', (e) => {
 
 })
 
-orderId && orderDesc && orderDate.addEventListener('keyup', () => {
+orderId && orderDesc && orderDate.addEventListener('input', () => {
     if (orderId && orderDesc && orderDate.value.trim() === "") {
         submitData.disabled = true;
     } else {
@@ -53,17 +55,17 @@ ex : 201 => Output : 202
 ex : -3 => Output : -2 */
 
 const nextBtn = document.getElementById("nextBtn");
-let digit = document.getElementById("inputDigit");
+const digit = document.getElementById("inputDigit");
 
 nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  
+
   const number = Number(digit.value)
 
   const nextNumber = number + 1;
 
   document.getElementById("nextVal").innerText = nextNumber;
-});
+})
 
 digit.addEventListener('input', () => {
     if (digit.value.trim() === "") {
@@ -111,9 +113,7 @@ strRev.addEventListener('keyup', () => {
 /* 5. take a one input field , find out total count of vowels inside input string. */
 
 const vowelInput = document.getElementById('vowelCheck');
-
 const countBtn = document.getElementById('countBtn');
-
 let vowels = "aeiou";
 
 countBtn.addEventListener('click', (e) => {

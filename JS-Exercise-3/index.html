@@ -25,7 +25,7 @@
         <form>
             <label for="orderId">ID:</label>
             <input type="number" name="orderId" id="orderId"
-                placeholder="Enter ID"> <br><br>
+                placeholder="Enter ID" min="0"> <br><br>
 
             <label for="orderDesc">Description:</label>
             <input type="text" name="orderDesc" id="orderDesc"
@@ -36,10 +36,10 @@
                 placeholder="Enter Date"> <br><br>
 
             <button id="dataSubmit" disabled>Submit</button> &nbsp;&nbsp;
-            <button id="matchBtn">Match</button>
+            <button id="matchBtn" disabled>Match</button>
+            <p>Object with today's Date: <span id="dateObj"></span>
         </form>
 
-        <p>Object with today's Date: <span id="dateObj"></span>
         </p><br>
 
         <h4>2. Find out next digit of entered digit.
@@ -47,7 +47,7 @@
             ex : -3 => Output : -2</h4>
         <form id="demo">
             <label for="inputDigit">Enter Digit: &nbsp;</label>
-            <input type="number" id="inputDigit" placeholder="type here"><br>
+            <input type="number" id="inputDigit" placeholder="type here"> &nbsp;
             <button id="nextBtn" disabled>Next Digit &nbsp;</button>
             <p>Next Value: <span id="nextVal">0</span></p>
         </form> <br>

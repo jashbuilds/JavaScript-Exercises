@@ -23,6 +23,7 @@ submitBtn1.addEventListener('click', (e) => {
     newObj.name = inputName1.value;
     newObj.age = inputAge1.value;
 
+    console.log(newObj)
     showObj.innerHTML = JSON.stringify(newObj)
 
 })
@@ -51,6 +52,7 @@ submitBtn2.addEventListener('click', (e) => {
         age: inputAge2.value
     }]
 
+    console.log(newArr)
     document.getElementById('dataArr').innerText = JSON.stringify(newArr)
 
 });
