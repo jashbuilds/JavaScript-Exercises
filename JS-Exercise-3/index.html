@@ -25,29 +25,27 @@
         <form>
             <label for="orderId">ID:</label>
             <input type="number" name="orderId" id="orderId"
-                placeholder="Enter ID" min="0"> <br><br>
+                placeholder="Enter ID" min="0" required> <br><br>
 
             <label for="orderDesc">Description:</label>
             <input type="text" name="orderDesc" id="orderDesc"
-                placeholder="Enter Description"> <br><br>
+                placeholder="Enter Description" required> <br><br>
 
             <label for="orderDate">Date:</label>
             <input type="date" name="orderDate" id="orderDate"
-                placeholder="Enter Date"> <br><br>
+                placeholder="Enter Date" required> <br><br>
 
-            <button id="dataSubmit" disabled>Submit</button> &nbsp;&nbsp;
-            <button id="matchBtn" disabled>Match</button>
-            <p>Object with today's Date: <span id="dateObj"></span>
+            <button id="dataSubmit" type="submit" disabled>Submit</button> &nbsp;&nbsp;
+            <button id="matchBtn" type="submit" disabled>Match</button>
+            <p>Object with today's Date: <span id="dateObj"></span></p>
         </form>
-
-        </p><br>
 
         <h4>2. Find out next digit of entered digit.
             ex : 201 => Output : 202
             ex : -3 => Output : -2</h4>
         <form id="demo">
             <label for="inputDigit">Enter Digit: &nbsp;</label>
-            <input type="number" id="inputDigit" placeholder="type here"> &nbsp;
+            <input type="number" id="inputDigit" placeholder="type here" required> &nbsp;
             <button id="nextBtn" disabled>Next Digit &nbsp;</button>
             <p>Next Value: <span id="nextVal">0</span></p>
         </form> <br>
@@ -56,14 +54,14 @@
             'a' is at first position in word.
             ex: 'I am master at string'
             output : 'I zm master zt string'</h4>
-        <p>Original String: 'I am master at string'.</p>
+        <p>Original String: "I am master at string".</p>
         <p>Updated String: <span id="updStr"></span></p> <br><br>
 
         <form>
             <h4>4. take a one input field , reverse entered input.</h4>
             <label for="strRev">Enter String: &nbsp;</label>
             <input type="text" name="strRev" id="strRev"
-                placeholder="type here">
+                placeholder="type here" required>
             <button id="revBtn" disabled>Reverse</button>
             <p>Reversed String: &nbsp; <span id="revStr"></span></p> <br><br>
 
@@ -71,7 +69,7 @@
                 inside input string.</h4>
             <label for="vowelCheck">Enter String to get vowel Count:
                 &nbsp;</label>
-            <input type="text" id="vowelCheck" placeholder="type here">
+            <input type="text" id="vowelCheck" placeholder="type here" required>
             <button id="countBtn" disabled>Count</button> <br>
             <p>Count of vowels in String: <span id="vowelCount"></span></p>
         </form>

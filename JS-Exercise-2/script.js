@@ -1,17 +1,12 @@
 /* 1. in input field , if its contains vowels then display it in red color , otherwise display it in green color. */
 
-const input = document.getElementById('input');
+const inputStr = document.getElementById('inputStr');
 
-input.addEventListener('input', () => {
-    
-    const vowels = /[aeiou]/gi;
-    const inputVal = document.getElementById('input').value;
-    
-    if (vowels.test(inputVal)) {
-        input.style.color = 'red';
-    } else {
-        input.style.color = 'green';
-    }
+inputStr.addEventListener('input', () => {
+
+    const inputVal = document.getElementById('inputStr').value
+
+    inputStr.style.color = /[aeiou]/i.test(inputVal) ? "red" :"green"
 })
 
 
@@ -33,22 +28,16 @@ const personData = [
     }
 ]
 
-let min = personData.reduce((min, user) => 
-    user.age < min.age ? user : min
-);
+const getMinAge = (data) => data.reduce((min, user) => user.age < min.age ? user : min)
 
 const minAge = document.getElementById('minAge');
+minAge.textContent = JSON.stringify(getMinAge(personData));
 
-minAge.innerHTML = JSON.stringify(min);
+const getMaxAge = (data) => data.reduce((min, user) => user.age > min.age ? user : min)
 
+const maxAge = document.getElementById('maxAge')
+maxAge.textContent = JSON.stringify(getMaxAge(personData))
 
-let max = personData.reduce((max, user) =>
-    user.age > max.age ? user : max
-);
-
-const maxAge = document.getElementById('maxAge');
-
-maxAge.innerHTML = JSON.stringify(max);
 
 
 
@@ -56,37 +45,31 @@ maxAge.innerHTML = JSON.stringify(max);
 
 const strField = document.getElementById('str')
 
-let str = "javascript learning";
+let originalStr = "javascript learning"
 
-let newStr = str.replace(/a/g, "c")
+let newStr = originalStr.replaceAll("a", "c")
 
-strField.innerHTML = ' "' + newStr + '" '
+strField.textContent = JSON.stringify(newStr)
+
 
 
 
 /* 4. "Hello world, welcome" : check "world" is starts at position 7 , if yes then display true else display false. */
 
-const position = document.getElementById('position')
+const boolValueField = document.getElementById('position')
 
-let greet = "Hello world, welcome";
+const greetStr = "Hello world, welcome"
 
-let index = greet.indexOf("world");
-
-if(index === 7) {
-    position.innerHTML = true
-    
-} else {
-    position.innerText = false
-}
+boolValueField.textContent = greetStr.startsWith("world", 6) ? true : false
 
 
 
 /* 5. fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"] : remove 2nd & 3rd element from array. */
 
-const spliceFruit = document.getElementById('fruits')
+const updatedFruits = document.getElementById('fruits')
 
-let fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"]
+const fruitsArr = ["Banana", "Orange", "Apple", "Mango", "Kiwi"]
 
-fruits.splice(1, 2)
+fruitsArr.splice(1, 2)
 
-spliceFruit.innerHTML = `[ "${fruits[0]}", "${fruits[1]}", "${fruits[2]}" ]`
+updatedFruits.textContent = JSON.stringify(fruitsArr)

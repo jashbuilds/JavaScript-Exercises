@@ -29,24 +29,20 @@ submitData.addEventListener("click", (e) => {
     e.preventDefault();
 
     addData(stdName.value, mathMarks.value, sciMarks.value, engMarks.value);
+    console.table(stdData);
 
-    delete stdData.name;
+    const total = stdData.mathsMarks + stdData.scienceMarks + stdData.englishMarks
 
-    let sum = 0;
-    for (let i in stdData) {
-        sum += stdData[i];
-    }
-
-    console.log(`Total of all subject marks: ${sum}`);
+    console.log(`Total of all subject marks: ${total}`);
 
     switch (true) {
-        case sum >= 200:
+        case total >= 200:
             console.log("you are passed with grade A");
             break;
-        case sum >= 100:
+        case total >= 100:
             console.log("you are passed with grade B");
             break;
-        case sum < 100 && sum >= 55:
+        case total < 100 && total >= 55:
             console.log("you are passed with grade C");
             break;
         default:
@@ -54,16 +50,13 @@ submitData.addEventListener("click", (e) => {
     }
 });
 
-stdName &&
-    mathMarks &&
-    sciMarks &&
-    engMarks.addEventListener("keyup", () => {
-        if (stdName && mathMarks && sciMarks && engMarks.value.trim() === "") {
-            submitData.disabled = true;
-        } else {
-            submitData.disabled = false;
-        }
-    });
+const validateStudentForm = () => submitData.disabled = stdName.value.trim() === "" || mathMarks.value.trim() === "" || sciMarks.value.trim() === "" || engMarks.value.trim() === "" ? true : false
+
+const studentInputFields = [stdName, mathMarks, sciMarks, engMarks]
+studentInputFields.forEach(input => input.addEventListener('keyup', validateStudentForm) ) 
+
+
+
 
 /* 2. Generate an array of random digits like [1,2,3,6,5,3,46,63];
 
@@ -85,10 +78,11 @@ generateBtn.addEventListener("click", (e) => {
     arr = []
 
     const arrayLength = document.getElementById("arrayLength").value;
+
     for (var i = 0; i < arrayLength; i++) {
         arr.push(Math.round(Math.random() * 30));
     }
-
+    
     console.table(arr)
 
     trimArrBtn.disabled = false
@@ -99,9 +93,7 @@ trimArrBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let result = [];
     for (let num of arr) {
-        if (num === 5) {
-            break;
-        }
+        if (num === 5) break;
         result.push(num);
     }
     console.table(result);
@@ -117,9 +109,6 @@ skipArrBtn.addEventListener("click", (e) => {
 arrayLengthInput.addEventListener('input', (e) => {
     e.preventDefault()
 
-    if(arrayLengthInput.value.trim() === ""){
-        generateBtn.disabled = true
-    } else {
-        generateBtn.disabled = false
-    }
+    generateBtn.disabled = arrayLengthInput.value.trim() === "" ? true : false 
+
 })

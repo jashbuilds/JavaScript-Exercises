@@ -1,66 +1,67 @@
 /* 1. take one input field. display count of character entered in input. */
 
-const charInput = document.getElementById('charInput');
-const charCount = document.getElementById('charCount');
+const charInput = document.getElementById('charInput')
+const charCount = document.getElementById('charCount')
 
 charInput.addEventListener('input', () => {
-    charCount.innerHTML = charInput.value.length;
+    charCount.textContent = charInput.value.length;
 })
 
 
 
 /* 2. take 2 input fields like name and age. display it in object. ex : {name:'test1',age:18} */
 
-const inputName1 = document.getElementById('name');
-const inputAge1 = document.getElementById('age');
-const submitBtn1 = document.getElementById('submitBtn')
+const dispObjUserName = document.getElementById('name')
+const dispObjUserAge = document.getElementById('age')
+const submitObj = document.getElementById('submitBtn')
 const showObj = document.getElementById('showObj')
 
-submitBtn1.addEventListener('click', (e) => {
+submitObj.addEventListener('click', (e) => {
     e.preventDefault();
 
     const newObj = {}
-    newObj.name = inputName1.value;
-    newObj.age = inputAge1.value;
+    newObj.name = dispObjUserName.value
+    newObj.age = dispObjUserAge.value
 
     console.log(newObj)
-    showObj.innerHTML = JSON.stringify(newObj)
+    showObj.textContent = JSON.stringify(newObj)
 
 })
 
-inputName1 && inputAge1.addEventListener('keyup', () => {
-    if (inputName1 && inputAge1.value.trim() === "") {
-        submitBtn1.disabled = true;
-    } else {
-        submitBtn1.disabled = false;
-    }
+const validateObjForm = () => submitObj.disabled = dispObjUserName.value.trim() === "" || dispObjUserAge.value.trim() === "" ? true : false
+
+const objInputFields = [dispObjUserName, dispObjUserAge]
+objInputFields.forEach(input => {
+    input.addEventListener('keyup', validateObjForm)
 })
 
 
 
 /* 3. take 2 input fields like name and age. display it in array. ex : [{name:'test1',age:18},{name:'test1',age:18}];*/
 
-const inputName2 = document.getElementById('nameArr');
-const inputAge2 = document.getElementById('ageArr');
-const submitBtn2 = document.getElementById('submitArr')
+const dispArrUserName = document.getElementById('nameArr')
+const dispArrUserAge = document.getElementById('ageArr')
+const submitArr = document.getElementById('submitArr')
+const showArr = document.getElementById('dataArr')
 
-submitBtn2.addEventListener('click', (e) => {
+submitArr.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const newArr = [{
-        name: inputName2.value,
-        age: inputAge2.value
-    }]
+    const users = []
 
-    console.log(newArr)
-    document.getElementById('dataArr').innerText = JSON.stringify(newArr)
+    users.push({
+        name: dispArrUserName.value,
+        age: dispArrUserAge.value
+    })
+
+    console.log(users)
+    showArr.textContent  = JSON.stringify(users)
 
 });
 
-inputName2 && inputAge2.addEventListener('keyup', () => {
-    if (inputName2 && inputAge2.value.trim() === "") {
-        submitBtn2.disabled = true;
-    } else {
-        submitBtn2.disabled = false;
-    }
+const validateArrForm = () => submitArr.disabled = dispArrUserName.value.trim() === "" || dispArrUserAge.value.trim() === "" ? true : false
+
+const arrInputFields = [dispArrUserName, dispArrUserAge]
+arrInputFields.forEach(input => {
+    input.addEventListener('keyup', validateArrForm)
 })

@@ -5,50 +5,55 @@
 const orders = [];
 
 function addData(id, desc, date) {
-    const obj = {
-        id: id,
-        description: desc,
-        date: date
-    }
-    orders.push(obj);
+  const orderObj = {
+    id: id,
+    description: desc,
+    date: date,
+  };
+  orders.push(orderObj);
 }
 
-const submitData = document.getElementById('dataSubmit');
-const orderId = document.getElementById('orderId')
-const orderDesc = document.getElementById('orderDesc')
-const orderDate = document.getElementById('orderDate')
-const matchBtn = document.getElementById('matchBtn')
+const submitDataBtn = document.getElementById("dataSubmit");
+const orderId = document.getElementById("orderId");
+const orderDesc = document.getElementById("orderDesc");
+const orderDate = document.getElementById("orderDate");
+const matchBtn = document.getElementById("matchBtn");
 
-submitData.addEventListener('click', (e) => {
-    e.preventDefault();
-    const date = new Date(orderDate.value).toISOString().split("T")[0]; 
-    
-    addData(orderId.value, orderDesc.value, date);
-    
-    console.table(orders);
+submitDataBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const date = new Date(orderDate.value).toISOString().split("T")[0];
 
-    matchBtn.disabled = false;
-})
+  addData(orderId.value, orderDesc.value, date);
 
-matchBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+  console.table(orders);
 
-    const today = new Date().toISOString().split("T")[0];
-    const result = orders.filter(order => order.date === today);
-    document.getElementById('dateObj').innerText = JSON.stringify(result)
+  matchBtn.disabled = false;
+});
 
-})
+matchBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
-orderId && orderDesc && orderDate.addEventListener('input', () => {
-    if (orderId && orderDesc && orderDate.value.trim() === "") {
-        submitData.disabled = true;
-    } else {
-        submitData.disabled = false;
-    }
-})
+  const today = new Date().toISOString().split("T")[0];
+  const result = orders.filter((order) => order.date === today);
+  document.getElementById("dateObj").textContent = JSON.stringify(result);
+});
 
+const validateOrderForm = () =>
+  (submitDataBtn.disabled =
+    orderId.value.trim() === "" ||
+    orderDesc.value.trim() === "" ||
+    orderDate.value.trim() === ""
+      ? true
+      : false);
 
+const orderInputFields = [orderId, orderDesc, orderDate];
+orderInputFields.forEach((input) => {
+  input.addEventListener("keyup", validateOrderForm);
+});
 
+submitDataBtn.disabled
+  ? (matchBtn.disabled = true)
+  : (matchBtn.disabled = false);
 
 /* 2. Find out next digit of entered digit.
 ex : 201 => Output : 202
@@ -60,82 +65,66 @@ const digit = document.getElementById("inputDigit");
 nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const number = Number(digit.value)
+  const number = Number(digit.value);
 
   const nextNumber = number + 1;
 
-  document.getElementById("nextVal").innerText = nextNumber;
-})
+  document.getElementById("nextVal").textContent = nextNumber;
+});
 
-digit.addEventListener('input', () => {
-    if (digit.value.trim() === "") {
-        nextBtn.disabled = true;
-    } else {
-        nextBtn.disabled = false;
-    }
-})
-
-
+digit.addEventListener(
+  "input",
+  () => (nextBtn.disabled = digit.value.trim() === "" ? true : false),
+);
 
 /* 3. for the given string replace all 'a' character with 'z' , only if 'a' is at first position in word.
 ex: 'I am master at string' output : 'I zm master zt string' */
 
-let string = 'I am master at string';
+let string = "I am master at string";
 
 const newStr = string.replace(/\ba/g, "z");
 
-document.getElementById('updStr').innerText = " '" +  newStr + "' ";
-
-
+document.getElementById("updStr").textContent = JSON.stringify(newStr);
 
 /* 4. take a one input field , reverse entered input. */
 
-const strRev = document.getElementById('strRev')
-const revBtn = document.getElementById('revBtn')
+const strRev = document.getElementById("strRev");
+const revBtn = document.getElementById("revBtn");
 
-revBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+revBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
-    const reversed = strRev.value.split("").reverse().join("");
+  const reversed = strRev.value.split("").reverse().join("");
 
-    document.getElementById('revStr').innerText = reversed;
-})
+  document.getElementById("revStr").textContent = reversed;
+});
 
-strRev.addEventListener('keyup', () => {
-    if (strRev.value.trim() === "") {
-        revBtn.disabled = true;
-    } else {
-        revBtn.disabled = false;
-    }
-})
-
+strRev.addEventListener(
+  "keyup",
+  () => (revBtn.disabled = strRev.value.trim() === "" ? true : false),
+);
 
 /* 5. take a one input field , find out total count of vowels inside input string. */
 
-const vowelInput = document.getElementById('vowelCheck');
-const countBtn = document.getElementById('countBtn');
+const vowelInput = document.getElementById("vowelCheck");
+const countBtn = document.getElementById("countBtn");
 let vowels = "aeiou";
 
-countBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+countBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
-    const text = vowelInput.value.toLowerCase()
+  const text = vowelInput.value.toLowerCase();
 
-    let count = 0;
+  let count = 0;
 
-    for(let char of text){
-        if(vowels.includes(char)){
-            count++;
-        }
-    }
+  for (let char of text) {
+    if (vowels.includes(char)) count++;
+  }
 
-    document.getElementById('vowelCount').innerText = count;
-})
+  document.getElementById("vowelCount").textContent = count;
+});
 
-vowelInput.addEventListener('keyup', () => {
-    if (vowelInput.value.trim() === "") {
-        countBtn.disabled = true;
-    } else {
-        countBtn.disabled = false;
-    }
-})
+vowelInput.addEventListener(
+  "keyup",
+  () => (countBtn.disabled = vowelInput.value.trim() === "" ? true : false),
+);
