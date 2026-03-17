@@ -9,12 +9,12 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
             rel="stylesheet">
         <link rel="stylesheet" href="../CSS/style.css">
-        
+
         <title>JS Exercise 6</title>
     </head>
     <body class="main">
 
-        <h1>JS Exercise 6</h1>
+        <h1>JavaScript Exercise 6</h1>
 
         <form>
             <h4>1.Take one text input field and click on submit button test
@@ -22,15 +22,56 @@
                 not.</h4>
             <label for="testChar">Enter String:</label> &nbsp;
             <input type="text" id="testChar" name="testChar" required>
-            <button type="submit" id="submitStr">Submit</button>
-            <p>Check Uppercase for first letter: <span id="uppercaseChar"></span> </p><br>
+            <button type="submit" id="submitStr" disabled>Submit</button>
+            <p>First letter of string is Uppercase (true/false): &nbsp;<span
+                    id="uppercaseChar"></span> </p><br>
 
             <h4>2. Take one text input field and put one button named "copy",
                 click on button copy a string to the clipboard.</h4>
-                <label for="copyChar">Enter String to make a copy:</label> &nbsp;
-                <input type="text" name="copyChar" id="copyChar">
-                <button type="submit" id="submitCopy">Copy</button> <br>
-                <p id="copyMsg"></p>
+            <label for="copyChar">Enter String to make a copy:</label> &nbsp;
+            <input type="text" name="copyChar" id="copyChar">
+            <button type="submit" id="submitCopy" disabled>Copy</button> <br>
+            <p>Copy Message: &nbsp;<span id="copyMsg"></span></p> <br>
+
+            <h4>3. Write a JavaScript program to find all the index positions of
+                a given word within a given string.
+
+                ( "The quick brown fox jumps over the lazy dog.", "the") -> [31]
+                ( "the quick brown fox jumps over the lazy dog.", "the") -> [0,
+                31]
+                ( "the quick brown fox jumps over the lazy dog.", "cat") ->
+                []</h4>
+            <p>( "The quick brown fox jumps over the lazy dog.", "the")</p>
+            <p>Position of "the" word in given String: &nbsp; <strong
+                    id="indexFirstStr"></strong></p>
+
+            <p>( "the quick brown fox jumps over the lazy dog.", "The")</p>
+            <p>Position of "the" word in given String: &nbsp; <strong
+                    id="indexSecondStr"></strong></p>
+
+            <p>( "the quick brown fox jumps over the lazy dog.", "cat")</p>
+            <p>Position of "cat" word in given String: &nbsp; <strong
+                    id="indexThirdStr"></strong></p> <br>
+
+            <h4>4. Take input for file upload and display the name of uploaded
+                file.</h4>
+            <input type="file" name="fileUpload" id="fileUpload"> <br>
+            <p>Name of chosen file: <span id="fileName"></span></p> <br>
+
+            <h4>5. take one input field and take number in percentage between
+                0-100%, based on percentage create progress bar that updates its
+                width.
+
+                for eg : entered 75% then progress bar width filled 75% with
+                green colour.
+            </h4>
+            <label for="inputNum">Enter Percentage:</label> &nbsp;
+            <input type="number" name="inputNum" id="inputNum" min="0"
+                max="100" placeholder="number"> <br><br>
+            <div class="container">
+                <div class="bar" id="progressBar"></div>
+                <p>Progress: <span id="progressVal">0%</span></p>
+            </div>
         </form>
 
         <script src="./script.js"></script>
