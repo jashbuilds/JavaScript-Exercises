@@ -1,0 +1,12 @@
+:root {
+    --primary-white: white;
+}
+
+.main {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* JS-Exercise-04 => index.html => line-70 */
+.main .charInput {
+    color: var(--primary-white); 
+}

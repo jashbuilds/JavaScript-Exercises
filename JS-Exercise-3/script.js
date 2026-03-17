@@ -88,27 +88,26 @@ document.getElementById("updStr").textContent = JSON.stringify(newStr);
 
 /* 4. take a one input field , reverse entered input. */
 
-const strRev = document.getElementById("strRev");
-const revBtn = document.getElementById("revBtn");
+const strRevInput = document.getElementById("strRev");
+const reverseBtn = document.getElementById("revBtn");
 
-revBtn.addEventListener("click", (e) => {
+reverseBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const reversed = strRev.value.split("").reverse().join("");
+  const reversed = strRevInput.value.split("").reverse().join("");
 
   document.getElementById("revStr").textContent = reversed;
 });
 
-strRev.addEventListener(
+strRevInput.addEventListener(
   "keyup",
-  () => (revBtn.disabled = strRev.value.trim() === "" ? true : false),
+  () => (reverseBtn.disabled = strRevInput.value.trim() === "" ? true : false),
 );
 
 /* 5. take a one input field , find out total count of vowels inside input string. */
 
 const vowelInput = document.getElementById("vowelCheck");
 const countBtn = document.getElementById("countBtn");
-let vowels = "aeiou";
 
 countBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -118,7 +117,7 @@ countBtn.addEventListener("click", (e) => {
   let count = 0;
 
   for (let char of text) {
-    if (vowels.includes(char)) count++;
+    if ("aeiou".includes(char)) count++;
   }
 
   document.getElementById("vowelCount").textContent = count;

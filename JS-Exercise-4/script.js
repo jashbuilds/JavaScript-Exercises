@@ -38,12 +38,11 @@ submitBtn.addEventListener("click", (e) => {
   console.table(nameArr);
 
   const totalSalary = employeesArr.reduce((sum, emp) => sum + emp.salary, 0);
-  console.log("Total Salary:");
-  console.table(totalSalary);
+  console.log(`Total Salary: ${totalSalary}`);
 
-  const test1 = employeesArr.filter((emp) => emp.name === "test1");
+  const testArr = employeesArr.filter((emp) => emp.name === "test1");
   console.log("Objects containing name (test1):");
-  console.table(test1);
+  console.table(testArr);
 
   document.getElementById("message").textContent = "(Check console for Output)";
 });
@@ -63,9 +62,9 @@ employeeInputFields.forEach((input) => {
 
 /* 2. str = 'https://test/google.com'; find the last index of '/'  */
 
-const str = "https://test/google.com";
+const strUrl = "https://test/google.com";
 
-const lastIndex = str.lastIndexOf("/");
+const lastIndex = strUrl.lastIndexOf("/");
 
 document.getElementById("indexVal").textContent = lastIndex;
 
@@ -98,13 +97,11 @@ document.getElementById("binaryVal").textContent = JSON.stringify(binaryArr);
 
 let text = "Mr. Blue has a blue house";
 
-let newText = text.split(" ");
+let splitText = text.split(" ");
 
-document.getElementById("splitVal").textContent = JSON.stringify(newText);
+document.getElementById("splitVal").textContent = JSON.stringify(splitText);
 
 /* 7. take a one input field , if in input field entered last character is 'a,e,i,o,u' then background color of input will be red , else green. */
-
-const vowels = "aeiou";
 
 let charInput = document.getElementById("char");
 
@@ -114,7 +111,7 @@ charInput.addEventListener("input", (e) => {
   let inpValue = charInput.value.toLowerCase();
   let lastVal = inpValue[inpValue.length - 1];
 
-  charInput.style.backgroundColor = vowels.includes(lastVal) ? "red" : "green";
+  charInput.style.backgroundColor = "aeiou".includes(lastVal) ? "red" : "green";
 });
 
 /* 8.take a string as input field:
@@ -122,7 +119,6 @@ charInput.addEventListener("input", (e) => {
             - must contain one uppercase and one lowercase letter.
             - must contain one symbol. if following condition is not matched then display message like , "string is not valid". */
 
-const re = /^(?=.*?[A-Z])(?=.*?[a-z])(?!.*[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 const validateBtn = document.getElementById("validateBtn");
 const strVal = document.getElementById("checkStr");
 const validateMsgField = document.getElementById("validateMsg");
@@ -130,7 +126,7 @@ const validateMsgField = document.getElementById("validateMsg");
 validateBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  validateMsgField.textContent = re.test(strVal.value)
+  validateMsgField.textContent = /^(?=.*?[A-Z])(?=.*?[a-z])(?!.*[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(strVal.value)
     ? "String is Valid"
     : "String is not Valid";
 });
