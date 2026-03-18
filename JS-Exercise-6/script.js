@@ -28,7 +28,7 @@ copyBtn.addEventListener("click", (e) => {
     copyCharInput.select();
     navigator.clipboard.writeText(copyCharInput.value);
   } catch (error) {
-    copyMsg.textContent = "Error!";
+    copyMsg.textContent = `Error! - ${error}`;
   }
   copyMsg.textContent = `String "${copyCharInput.value}" is copied to Clipboard!`;
 });
