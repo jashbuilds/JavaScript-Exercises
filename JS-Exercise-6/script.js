@@ -20,13 +20,17 @@ stringInput.addEventListener("input", validateCaseForm);
 
 const copyCharInput = document.getElementById("copyChar");
 const copyBtn = document.getElementById("submitCopy");
+const copyMsg = document.getElementById("copyMsg");
 
 copyBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  copyCharInput.select();
-  navigator.clipboard.writeText(copyCharInput.value);
-  document.getElementById("copyMsg").textContent =
-    `String "${copyCharInput.value}" is copied to Clipboard!`;
+  try {
+    copyCharInput.select();
+    navigator.clipboard.writeText(copyCharInput.value);
+  } catch (error) {
+    copyMsg.textContent = "Error!";
+  }
+  copyMsg.textContent = `String "${copyCharInput.value}" is copied to Clipboard!`;
 });
 
 const validateCopyForm = () =>
@@ -97,7 +101,7 @@ const progressVal = document.getElementById("progressVal");
 
 percentageInput.addEventListener("input", () => {
   const value = Number(percentageInput.value);
-  
+
   progressBar.style.width = value < 0 || value > 100 ? 0 : value + "%";
   progressVal.textContent = value < 0 || value > 100 ? "0%" : value + "%";
 });
