@@ -18,6 +18,7 @@ const orderId = document.getElementById("orderId");
 const orderDesc = document.getElementById("orderDesc");
 const orderDate = document.getElementById("orderDate");
 const matchBtn = document.getElementById("matchBtn");
+const grpByBtn = document.getElementById("grpByBtn");
 
 submitDataBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -28,6 +29,7 @@ submitDataBtn.addEventListener("click", (e) => {
   console.table(orders);
 
   matchBtn.disabled = false;
+  grpByBtn.disabled = false;
 });
 
 matchBtn.addEventListener("click", (e) => {
@@ -36,6 +38,13 @@ matchBtn.addEventListener("click", (e) => {
   const today = new Date().toISOString().split("T")[0];
   const result = orders.filter((order) => order.date === today);
   document.getElementById("dateObj").textContent = JSON.stringify(result);
+});
+
+grpByBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const ordersByAge = Object.groupBy(orders, (order) => order.date);
+  document.getElementById("grpByObj").textContent = JSON.stringify(ordersByAge)
+  console.log(ordersByAge);
 });
 
 const validateOrderForm = () =>
@@ -48,12 +57,9 @@ const validateOrderForm = () =>
 
 const orderInputFields = [orderId, orderDesc, orderDate];
 orderInputFields.forEach((input) => {
-  input.addEventListener("keyup", validateOrderForm);
+  input.addEventListener("input", validateOrderForm);
 });
 
-submitDataBtn.disabled
-  ? (matchBtn.disabled = true)
-  : (matchBtn.disabled = false);
 
 /* 2. Find out next digit of entered digit.
 ex : 201 => Output : 202
