@@ -42,9 +42,9 @@ matchBtn.addEventListener("click", (e) => {
 
 grpByBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  const ordersByAge = Object.groupBy(orders, (order) => order.date);
-  document.getElementById("grpByObj").textContent = JSON.stringify(ordersByAge)
-  console.log(ordersByAge);
+  const ordersByDate = Object.groupBy(orders, (order) => order.date);
+  document.getElementById("grpByObj").textContent = JSON.stringify(ordersByDate)
+  console.log(ordersByDate);
 });
 
 const validateOrderForm = () =>
